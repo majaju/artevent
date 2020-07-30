@@ -11,10 +11,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/all.css">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 <link rel="stylesheet" href="event.css">
+<script>
+
+            function valid()
+            {
+                var fname = document.getElementById('fname').value;
+                var lname = document.getElementById('lname').value;
+                var email = document.getElementById('email').value;
+                var mobileno = document.getElementById('mobileno').value;
+                var morning = document.getElementById('morning').value;
+                var afternoon = document.getElementById('afternoon').value;
+				var evening = document.getElementById('evening').value;
+                var paintings = document.getElementById('paintings');
+
+                var atposition  = email.indexOf("@");
+                var dotposition = email.lastIndexOf(".");
+
+                if (fname === "") {
+                    return("PLEASE ENTER YOUR NAME!");
+                } else if (fname.length<3) {
+                    alert("NAME ENTERED IS TOO SMALL!");
+                } else if (fname.length>20) {
+                    return("NAME ENTERED IS TOO BIG!");
+                } else if (isNaN(fname)==false){
+                    return("NAME CANNOT BE NUMERIC!");
+                } else if (email === "") {
+                    return("PLEASE ENTER YOUR EMAIL ID!");
+                } else if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length) {
+                    return("INVALID EMAIL ID! RE-ENTER IN THIS FORMAT (xxxxx@xxxxx.com)");
+                } else if (mobileno === "") {
+                    return("PLEASE ENTER YOUR PHONE NUMBER!");
+                } else if (isNaN(mobileno)==true) {
+                    return("ENTER A VALID PHONE NUMBER (ONLY DIGITS) ");
+                } else if (mobileno.length !=10 ) {
+                    return("ENTER A VALID PHONE NUMBER (10 DIGITS ONLY)");
+                } else if (!(document.getElementById('type1').checked) && !(document.getElementById('type2').checked)) {
+                    return("SELECT A OPTION")
+                }
+                else
+                  { return true;
+                  }
+            }
+
+
+              function addRow()
+              {
+                if(valid() == true)
+                {
+
+                  var fname = document.getElementById('fname').value;
+				  var lname = document.getElementById('lname').value;
+                  var mobileno = document.getElementById('mobileno').value;
+                  var email = document.getElementById('email').value;
+                  var morning = document.getElementById('morning').value;
+                var afternoon = document.getElementById('afternoon').value;
+				var evening = document.getElementById('evening').value;
+                  var paintings = document.getElementById('paintings');
+
+
+                    // get the html table
+                    // 0 = the first table
+                  var table = document.getElementsByTagName('table')[0];
+                  var newRow = table.insertRow(table.rows.length);
 
 
 
+                    var s= document.getElementById("paintings");
+                    var paintings = paintings.options[paintings.selectedIndex].value;
+
+                    if (document.getElementById('morning').checked) {
+                        e= document.getElementById('morning').value;
+                    }
+                    else if (document.getElementById('afternoon').checked) {
+                       e = document.getElementById('afternoon').value;
+                    }
+		    else if (document.getElementById('evening').checked) {
+                       e = document.getElementById('evening').value;
+                    }
+
+                    var cel1 = newRow.insertCell(0);
+                    var cel2 = newRow.insertCell(1);
+                    var cel3 = newRow.insertCell(2);
+                    var cel4 = newRow.insertCell(3);
+                    var cel5 = newRow.insertCell(4);
+                    var cel6 = newRow.insertCell(5);
+                    // add values to the cells
+                    cel1.innerHTML = fname;
+                    cel2.innerHTML = lname;
+                   cel3.innerHTML = mobileno;
+                    cel4.innerHTML = email;
+                    cel5.innerHTML = e;
+                    cel6.innerHTML = paintings;
+
+                    if(document.getElementById('type1').checked && !(document.getElementById('type2').checked))
+                    {
+                    	c1 = document.getElementById('type1').value;
+                    	var cel7 = newRow.insertCell(6);
+                    	cel7.innerHTML = c1;
+                    }
+                    else if(document.getElementById('type2').checked && !(document.getElementById('type1').checked))
+                    {
+                    	c1 = document.getElementById('type2').value;
+                    	var cel7 = newRow.insertCell(6);
+                    	cel7.innerHTML = c1;
+                    }
+                    
+                    else if(document.getElementById('type1').checked && document.getElementById('type2').checked )
+                    {
+                    	c1 = document.getElementById('type1').value;
+                    	var cel7 = newRow.insertCell(6);
+                    	cel7.innerHTML = c1;
+
+                    	c2 = document.getElementById('type2').value;
+                    	var cel8 = newRow.insertCell(7);
+                    	cel8.innerHTML = c2;
+                    }
+
+                    // add new empty row to the table
+                    // 0 = in the top
+                    // table.rows.length = the end
+                    // table.rows.length/2+1 = the center
+                    
+                    // add cells to the row
+                    
+          
+                    alert("Form will be submitted");
+              }
+              else {alert(valid());}
+            }
+
+        </script>
 </head>
 
 <body>
@@ -28,15 +156,30 @@
 </div>
 
 <ul>
-<li><a class="active" href="#section1">Home</a></li>
+<li><a href="#section1">Home</a></li>
 <li><a href="#section2">Registration Form</a></li>
 <li><a href="#section3">Show registration</a></li>
 </ul>
 </nav>
 
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+    
+$('li').click(function(){
+        
+$('li.active').removeClass('active');
+        
+$(this).addClass('active');
+    });
+});
+</script>
+
 </header>
 
-<div id="section1">
+<div id="section1" >
 <div class="container">
 <h1>Welcome to art in motion!!</h1><br>
 <p1><b>Art is not what you see, but what you make others see. Art exhibition is a great way to increase the credibility of artists. Sharing artwork is beneficial to both artist as well as visitor. Art Exhibitions can create a spark for an artists creativity. This event is all about exhibiting art. Basically the visitors have to pay for entering the exhibition and they may buy the paintings or any art if they are willing to by consulting with the owner of the painting.<b></p1>
@@ -44,49 +187,34 @@
 </div>
 <br><br>
 <div id="section2">
-<div class="registration">
-  <form id="registration" method="post" action="#"><br><br><br><br><br>
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="firstname" name="firstname" placeholder="Your name.." pattern="^[a-zA-Z]+((\s{1}[a-zA-Z]+)+|$)" required autofocus><br><br>
+<div  class="event-registration" id="sec2">
+   <br>
 
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lastname" name="lastname" placeholder="Your last name.." pattern="^[a-zA-Z]+((\s{1}[a-zA-Z]+)+|$)" required autofocus><br><br>
+    <form id="event-registration-form">
+      <!-- Form contents will go here -->
 
-    
-    <label for="mailaddress">Email:</label><br>
-    <input type="text" id="mailaddress" name="mailaddress" placeholder="Your mail address.." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autofocus><br><br>
-<label for="mobilenumber">Mobile number:</label><br>
-<select id="num">
-<option>+ 91</option>
-<option>+ 92</option>
-<option>+ 93</option>
-<option>+ 94</option>
-<option>+ 95</option>
-</select><input type="number" name="number" id="number" placeholder="Enter your mobile number" pattern="[0-9]{10}" required autofocus><br>
-    
-<br>
-<form id="ma" action="#">
-  <label for="gender">Please select your gender:</label><br>
-  <input type="radio" id="male" name="gender" value="male">
-  <label for="male">Male</label>
-  <input type="radio" id="female" name="gender" value="female">
-  <label for="female">Female</label>
-  <input type="radio" id="other" name="gender" value="other">
-  <label for="other">Other</label>
+        <label for="fname">First Name</label><br><br>
+        <input type="text" id="fname" name="first-name" placeholder="seeta"  maxlength="45" pattern="^[a-zA-Z]+((\s{1}[a-zA-Z]+)+|$)" required autofocus/><br><br>
+        <label for="lname">Last Name</label><br><br>
+        <input type="text" id="lname" name="last-name" placeholder="hiremath"  maxlength="45" pattern="^[a-zA-Z]+((\s{1}[a-zA-Z]+)+|$)" required autofocus /><br><br>
+        <label for="phone">Mobile Number</label><br><br>
+        <input type="text" id="mobileno" name="mobileno" placeholder="mobile_number" pattern="^\+[1-9]{1}[0-9]{3,14}$" required autofocus/><br><br>
+        <label for="email">Email</label><br><br>
+        <input type="email" id="email" name="email" placeholder="seeta@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autofocus/><br><br>
+		<br><br>
+ 
+ 
+ <label for="time">Time slot:</label><br><br>
+  <input type="radio" id="morning" name="morning" value="morning">
+  <label for="morning">Morning</label><br><br>
+  <input type="radio" id="afternoon" name="afternoon" value="afternoon">
+  <label for="afternoon">Afternoon</label><br><br>
+  <input type="radio" id="evening" name="evening" value="evening">
+  <label "evening">Evening</label>
+<br><br><br><br>
 
-<br>
-  <br>  
-    <form action="#">
-<label id="type" for="type">What would you like to do in art of motion:</label><br>
-    <input type="checkbox" id="type1" name="type1" value="Artist">
-    <label for="type1">Exhibit Art</label><br>
-     <input type="checkbox" id="type2" name="type2" value="Visitor">
-    <label for="type2">Visit</label><br>
-
-
-<form action="#">
-  <label for="paintings">Type of painting you want to exhibit:</label>
-  <select name="paintings" id="paintings">
+ <label for="paintings">Type of painting you want to exhibit:</label><br><br>
+  <select name="paintings" id="paintings"><br><br>
     <option value="oil">Oil</option>
     <option value="acrylic">Acrylic</option>
     <option value="watercolor">Watercolor</option>
@@ -95,44 +223,41 @@
  <option value="encaustic">Encaustic</option>
 <option value="none">None</option>
   </select>
-<br> 
+<br> <br>
 
-<br>
- <form action="#">
-<label  id="time" for="time">Time slot:</label><br>
-    <input type="checkbox" id="morning" name="morning" value="morning">
-    <label for="morning">Morning</label><br>
-     <input type="checkbox" id="afternoon" name="afternoon" value="afternoon">
-    <label for="afternoon">Afternoon</label><br>
-<input type="checkbox" id="evening" name="evening" value="evening">
-    <label for="evening">Evening</label><br>
+<label id="type" for="type">What would you like to do in art of motion:</label><br><br>
+    <input type="checkbox" id="type1" name="type1" value="Artist">
+    <label for="type1"> Exhibit Art</label>
+     <input type="checkbox" id="type2" name="type2" value="Visitor">
+    <label for="type2">Visit</label>
 
-  
+<br><br>
+ 
 
-    <button type="submit" class="registerbtn">Register</button>
+          <button type="button" id="entry" class = "registerbtn" onclick="addRow();">SUBMIT</button>
   </form>
-</div>
-</div>
+ 
 
+<br><br>
+</div>
+</div>
 <div id="section3">
-
-<table id="display">
-<tr>
-<th>First Name</th>
-<th>Last Name</th>
-<th>Email</th>
-<th>Mobile Number</th>
-<th>Gender</th>
-<th>Purpose of registration</th>
-<th>Type of art you want to exhibit</th>
+<table id="table" border="1">
+   <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+       <th>Mobile Number</th>
+      <th>Email</th>
 <th>Time slot</th>
-</tr>
+      <th>Art you want to exhibit</th>
+     
+	  <th>Purpose of registration</th>
+      </tr>
 </table>
-
-
-
-
 </div>
+<br><br>
+
+
 <div  id="footer" class="footer-main-div">
 <center><div class="footer-social-icons">
 <a href="#" class="fa fa-facebook"></a>
@@ -147,16 +272,5 @@
 </footer>
 
 
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript">
-$(document).on('click','nav ul li',function(){
-$(this).addClass('active').siblings().removeClass('active')
-})
-</script>
-
 </body>
 </html>
-
