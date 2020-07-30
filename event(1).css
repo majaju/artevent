@@ -4,7 +4,7 @@ scroll-behaviour:smooth;
 }
 
 body{
-background:url(sect2.jpg)no-repeat center center fixed;
+background:url(bg2.jpg)no-repeat center center fixed;
 background-size:cover;
 margin:0;
 padding:0;
@@ -96,17 +96,16 @@ color: #fff;
 line-height:20px;
 }
 
-nav ul li a.active,nav ul li a:hover
-{
-color:#fff;
-background:#B22222;
-}
+
+
+.active{background: #B22222 ;}
+
 
 #section1
 {
 width:100%;
 height:700px;
-background: url('art.jpg') no-repeat ;
+background: url('bg.jpg') no-repeat ;
 backrgound-size:cover;
 backgroun-position:center;
 -webkit-background-size:cover;
@@ -115,13 +114,25 @@ backgroun-position:center;
 
 }
 
+.container{
+	background:#000;
+width:50%;
+padding-left:20px;
+margin-left:65px;
+margin-right:60px;
+padding:75px;
+top:700%;
+left:100%;
+	
+}
+
 #section2
  
 {
-height:900px;
+height:700px;
 display:inline-block;
 width:100%;
-background: url("sect2.jpg");
+background: url('bg2.jpg');
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
@@ -130,8 +141,12 @@ background-size: cover;
 
 #section3
 {
+	top:400%;
 height:700px;
-background:none;
+background: url('bg3.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
 background-size:cover;
 display:inline-block;
 width:100%;
@@ -141,51 +156,22 @@ margin:0;
 padding:0;
 color:white;
 }
-
-.registration{
-width:40%;
-margin:auto;
+form
+{
+padding-left:90px;
+position:relative;
+margin:5% auto;
+height:950px;
+width:450px;
+padding-top:20px;
 background-color:rgba(0,0,0,0.5);
 }
-#registration{
-width:60%;
-margin:auto;
-}
+
 label{
 color:white;
 font-size:18px;
 }
-#firstname{
-width:100%;
-padding:4px;
-border-radius:5px;
-border:1px solid white;
-outline:0;
-font-family:serif;
-font-size:18px;
-background:none;
-}
-#lastname{
-width:100%;
-padding:4px;
-border-radius:5px;
-border:1px solid white;
-outline:0;
-font-family:serif;
-font-size:18px;
-background:none;
-}
-#mailaddress{
-width:100%;
-padding:4px;
-border-radius:5px;
-border:1px solid white;
-outline:0;
-font-family:serif;
-font-size:18px;
-background:none;
-}
-#number{
+#fname{
 width:80%;
 padding:4px;
 border-radius:5px;
@@ -195,16 +181,38 @@ font-family:serif;
 font-size:18px;
 background:none;
 }
-#num{
-padding:6px 0px;
+#lname{
+width:80%;
+padding:4px;
 border-radius:5px;
 border:1px solid white;
 outline:0;
-background-color:rgba(0,0,0,0.4);
-color:white;
+font-family:serif;
+font-size:18px;
+background:none;
+}
+#email{
+width:80%;
+padding:4px;
+border-radius:5px;
+border:1px solid white;
+outline:0;
+font-family:serif;
+font-size:18px;
+background:none;
+}
+#mobileno{
+width:80%;
+padding:4px;
+border-radius:5px;
+border:1px solid white;
+outline:0;
+font-family:serif;
+font-size:18px;
+background:none;
 }
 #paintings{
-width:100%;
+width:80%;
 padding:4px;
 border-radius:5px;
 border:1px solid white;
@@ -334,8 +342,9 @@ color: #fff;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width:50%;
   opacity: 0.9;
+  border-radius:20px;
 }
 
 .registerbtn:hover {
@@ -346,48 +355,47 @@ color:#fff;
 font-family: cursive;
 text-align: center;
 }
-.container{
-width: 70%;
-margin: auto;
-overflow: hidden;
-margin-top: 10%;
-}
-p1{
-color:#fff;
-text-align:center;
-letter-spacing: 2px;
-}
+
 
 table{
 border-collapse:collapse;
-width:50%;
+width:60%;
 margin:50px auto;
-background-color:burlywood;
+background-color:black;
 }
+
 table,th,td{
-border:2px solid black;
+border:2px solid #ddd;
 padding:5px;
 }
 th{
 font-size:20px;
+background-color:black;
 font-weight:700;
 font-family:Arial;
-color:#004d00;
+color:white;
 }
 td{
-font-size:25px;
-color:crimson;
+font-size:15px;
+color:white;
+background-color:white
 font-weight:400;
 font-family:Georgia;
 }
+
+
+
+
+
 .footer-bottom {
+
 width:100%;
 height:auto;
 margin:auto;
 margin-bottom:0;
 background: #92a8d1;
 padding:1px;
-margin-top:5px;
+margin-top:0px;
 position:fixed;
 }
 .footer-bottom p{
@@ -441,7 +449,7 @@ margin:auto;
   color: white;
 }
 #footer{
- background-color:black;
+ background-color:#000;
  flex: 0 0 45px;
  margin-top:auto;
  }
